@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        h1{
+            font-family: 'Roboto', sans-serif;
+            margin-top: 200px;
+            text-align: center;
+        }
+        div{
+            align-items: center;
+            display: flex;
+            justify-content: center;   
+            margin-top: 30px; 
+        }
+        label{
+            display: inline-flex;
+            font-family: 'Roboto', sans-serif;
+            font-size: 21px;
+            width: 240px;            
+        } 
+        .yo{
+            margin: 20px;            
+        } 
+        .button{
+            color: blanchedalmond;  
+            background-color: cadetblue;
+            border: 3px solid blanchedalmond;  
+            font-size: 30px;
+            height: 80px;
+            left: 33px;
+            margin-top: 20px;  
+            position: relative;
+            text-align: center;
+            width: 365px;
+        }
+        .button:hover{
+            background-color: blanchedalmond;
+            color: black;
+        } 
+    </style>
+</head>
+<body>
+    <h1>ENTER ADMIN DETAILS</h1>
+    <div>
+        <form action="/adminRequest" method="POST">
+            <label for="">Username :</label>
+            <input type="text" name="username" class="yo">
+            <br>
+            <label for="">Password :</label>
+            <input type="password" name="password" class="yo">
+            <br>
+            <label for="">Confirm Password :</label>
+            <input type="password" name="password1" class="yo">
+            <br>
+            <input type="submit" value="Send request to be admin" class="button"/>        
+        </form>
+    </div>
+</body>
+</html>
