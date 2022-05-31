@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        h1{
+            margin: 50px auto;
+            width: 50%;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            background-color: cadetblue;
+        }
+        table{
+            border-collapse: collapse;
+            font-family: 'Roboto', sans-serif;
+        }
+        td{
+            border: solid 2px;
+            font-family: 'Roboto', sans-serif;
+        }
+        div{
+            margin: 20px auto;
+            width: 50%;            
+            align-items: center;
+        }
+        table{
+            margin: 20px auto;
+            width: 50%;            
+            align-items: center;
+        }
+        .button{
+            color: blanchedalmond;  
+            background-color: cadetblue;
+            border: 3px solid blanchedalmond;  
+            font-size: 30px;
+            height: 80px;
+            left: 281px;
+            margin-top: 20px;  
+            position: relative;
+            text-align: center;
+            width: 150px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .button:hover{
+            background-color: blanchedalmond;
+            color: black;
+        }   
+        #logout{
+            margin: 0px 420px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>TAKE REQUESTS:</h1><br>
+    <div>
+    <form action="/allowTake" method="post">
+        <table>
+            <tr>
+                <td><b>Client</b></td>
+                <td><b>Book</b></td>
+            </tr>
+            <% let s='';%>
+            <% takeRequests.forEach(function(item) {%>    
+            <tr>
+            <% s = item.username + '@' + item.title; %>
+            <td>
+                <%=item.username%>
+            </td>
+            <td> 
+                <label>
+                    <%=item.title%>
+                    <input type="checkbox" name='<%=s %>' id="<%=item.title%>">
+                </label>
+            </td>
+            </tr>
+            <%})%>
+        </table>
+        <input type="submit" value="ALLOW" class="button">
+    </form>
+    </div>
+    <br><br><br>
+    
+    <h1>RETURN REQUESTS:</h1><br>
+    <div>
+    <form action="/allowReturn" method="post">
+        <table>
+            <tr>
+                <td><b>Client</b></td>
+                <td><b>Book</b></td>
+            </tr>
+            <% s='';%>            
+            <% returnRequests.forEach(function(item) {%>    
+            <tr>
+                <% s = item.username + '@' + item.title; %>
+                <td>
+                   <%=item.username%>
+                </td>
+                <td> 
+                    <label>
+                        <%=item.title%>
+                        <input type="checkbox" name='<%=s %>' id="<%=item.title%>">
+                    </label>
+                </td>               
+            </tr>
+            <%})%>
+        </table>
+        <input type="submit" value="ALLOW" class="button">
+    </form>
+    </div>
+    <br><br><br>
+    
+    <H1>ADMIN REQUESTS:</H1><br>
+    <div>
+    <form action="/allowAdmin" method="post">
+        <table>
+            <tr>
+                <td><b>USERNAME</b></td>
+                
+            </tr>
+            <% s='';%>
+            <% adminRequests.forEach(function(item) {%>    
+           <tr> 
+                <td> 
+                    <label>
+                        <%=item.username%>
+                        <input type="radio" name='<%=item.username%>' value="<%=item.title%>" >
+                    </label>
+                </td>               
+           </tr>
+           <%})%>
+        </table>
+        <input type="submit" value="ALLOW" class="button">
+    </form>
+    </div>
+    <input type="button" onclick="location.href='/logout'"  value="LOGOUT" class="button" id="logout"/>
+</body>
+</html>
